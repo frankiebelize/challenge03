@@ -17,64 +17,58 @@ function askLength() { //asking for length of password
   return numchar;
 };
 
-function askNum() {
+function askNum() { // ask if if you want to include numbers
     let num = confirm("Do you want to include numbers?");
     if (num) {
        var numlist = "0123456789";
     } else {
-     var numlist = " ";
+     var numlist = "";
     
     }
     return numlist;
     };
 
-function askUppercase() {
+function askUppercase() { // asking for uppercase values
     let letter = confirm("Do you want uppercase letters in your password?");
   if (letter) {
    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
    
   } else {
-    var uppercase = " ";
+    var uppercase = "";
 
   }
   return uppercase;
 };
-function askLowercase() {
+function askLowercase() { // asking for lowercase values
     let letter2 = confirm("Do you want lowercase letters in your password?");
     if (letter2) {
         var lowerCase = "abcdefghijclmnopqrstuvwxyz";
     } else {
-       var lowerCase = " ";
+       var lowerCase = "";
     }
     return lowerCase;
 };
-function askSpecial() {
+function askSpecial() { //asking for special characters
     let specialChar = confirm("Do you want to include special characters?");
     if (specialChar) {
         var special = " ! # $ % &'()*+,-./:;<=>?@[^_`{|}~";
     } else {
-        var special = " ";
+        var special = "";
     }
         return special;
     }
-function generatePassword() {
-    // askLength();
-    // askNum();
-    // askLowercase();
-    // askUppercase();
-    // askSpecial();
-    // var characters = special + lowerCase + uppercase + numlist;
+function generatePassword() { //function use to join all previous functions so that password can be generated
+    
     var characters = askNum() + askSpecial() + askLowercase() + askUppercase();
-    console.log(characters);
+    console.log(characters); // for character list check
     let newpassword = " ";
     var howlong = askLength();
-    // for (var i; i <= askLength();i++) {
         while (howlong >= newpassword.length) {
     
     newpassword += characters[Math.floor(Math.random() * characters.length)];
     
     
     }
-    console.log(newpassword);
+    console.log(newpassword); // for password check
     return newpassword;
 };
